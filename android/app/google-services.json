@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "790481247635",
+    "project_id": "fit-tracker-f4f29",
+    "storage_bucket": "fit-tracker-f4f29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790481247635:android:f6f01a5e0b9983f0d0dc66",
+        "android_client_info": {
+          "package_name": "id.my.fanslab.fit_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790481247635-m8csqb9e8c0c9oj031rq0nlvv8fq8uja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJRBCi-FZoMtM0E6-Ud69JC_xMdqEIjf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790481247635-m8csqb9e8c0c9oj031rq0nlvv8fq8uja.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "790481247635-pf922c6pis292v0n4h3lht2ppep9hu5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "id.my.fanslab.fitTracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
