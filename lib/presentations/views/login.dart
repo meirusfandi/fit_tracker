@@ -24,18 +24,17 @@ class _LoginState extends State<Login> {
 
   void _signInWithEmailAndPassword() async {
     final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isLogin', true);
+
     try {
       UserCredential users = await _auth.signInWithEmailAndPassword(
           email: _emailController.text,
           password: _passwordController.text
       );
       prefs.setBool('isLogin', true);
-
+      prefs.setString("id", users.user!.uid);
       prefs.setString("email", users.user!.email!);
       prefs.setString("name", users.user!.email!);
-      prefs.setString("gender", "Male");
-      prefs.setString("birth_date", "11-05-1996");
-      prefs.setString("height", "167");
 
       Navigator.pushAndRemoveUntil(
           context,

@@ -4,41 +4,33 @@ class UserEntity extends Equatable {
 
   const UserEntity({
     required this.id,
-    required this.firstName,
-    required this.lastName,
+    required this.name,
     required this.email,
-    required this.imageUrl,
     required this.gender,
     required this.dateOfBirth,
     required this.height
   });
 
   final String id;
-  final String firstName;
-  final String lastName;
+  final String name;
   final String email;
-  final String imageUrl;
   final String gender;
   final String dateOfBirth;
   final String height;
 
   factory UserEntity.fromJson(Map<String, dynamic> json) => UserEntity(
     id: json['id'] ?? "",
-    firstName: json['firstName'] ?? "",
-    lastName: json['lastName'] ?? "",
+    name: json['name'] ?? "",
     email: json['email'] ?? "",
-    imageUrl: json['imageUrl'] ?? "",
     gender: json['gender'] ?? "",
     dateOfBirth: json['dateOfBirth'] ?? "",
-    height: json['height'] ?? ""
+    height: json['height'] ?? 0
   );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'id': id,
-    'firstName': firstName,
-    'lastName': lastName,
+    'name': name,
     'email': email,
-    'imageUrl': imageUrl,
     'gender': gender,
     'dateOfBirth': dateOfBirth,
     'height': height
@@ -46,16 +38,14 @@ class UserEntity extends Equatable {
 
   factory UserEntity.empty() => const UserEntity(
     id: "",
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
-    imageUrl: "",
     gender: "",
     dateOfBirth: "",
     height: ""
   );
 
   @override
-  List<Object?> get props => [id, firstName, lastName, email, imageUrl, gender, dateOfBirth, height];
+  List<Object?> get props => [id, name, email, gender, dateOfBirth, height];
 
 }

@@ -1,7 +1,32 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class Tracker extends Equatable {
   const Tracker({
+    required this.id,
+    required this.data,
+  });
+
+  final String id;
+  final TrackerData data;
+
+  factory Tracker.fromJson(Map<String, dynamic> json) => Tracker(
+      id: json['id'] ?? "",
+      data: json['data']
+  );
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+    'id': id,
+    'data': data
+  };
+
+  @override
+  List<Object?> get props => [id, data];
+
+}
+
+class TrackerData extends Equatable{
+  const TrackerData({
     required this.id,
     required this.weight,
     required this.date,
@@ -10,10 +35,10 @@ class Tracker extends Equatable {
 
   final String id;
   final String weight;
-  final String date;
+  final Timestamp date;
   final String height;
 
-  factory Tracker.fromJson(Map<String, dynamic> json) => Tracker(
+  factory TrackerData.fromJson(Map<String, dynamic> json) => TrackerData(
       id: json['id'] ?? "",
       date: json['date'] ?? "",
       weight: json['weight'] ?? "",
@@ -27,14 +52,6 @@ class Tracker extends Equatable {
     'height': height
   };
 
-  factory Tracker.empty() => const Tracker(
-      id: "",
-      date: "",
-      height: "",
-      weight: "",
-  );
-
   @override
   List<Object?> get props => [id, weight, date, height];
-
 }
