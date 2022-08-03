@@ -74,6 +74,7 @@ class _ProfileState extends State<Profile> {
       body: FutureBuilder<DocumentSnapshot>(
         future: _userReferences.doc(_auth.currentUser!.uid).get(),
         builder: (context, snapshot) {
+          print(_auth.currentUser!.uid);
           if (snapshot.hasError) {
             return const Center(
               child: Text("Something went Error!"),
@@ -91,8 +92,8 @@ class _ProfileState extends State<Profile> {
               name: data['name'],
               email: data['email'],
               gender: data['gender'],
-              dateOfBirth: data['birth_date'],
-              height: data['height']
+              dateOfBirth: data['birth_date'].toString(),
+              height: data['height'].toString()
           );
           return SingleChildScrollView(
             child: Flex(

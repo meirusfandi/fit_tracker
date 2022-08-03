@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_tracker/presentations/views/home.dart';
 import 'package:fit_tracker/presentations/views/register.dart';
@@ -36,6 +37,7 @@ class _LoginState extends State<Login> {
       prefs.setString("email", users.user!.email!);
       prefs.setString("name", users.user!.email!);
 
+      insertData(users.user!.uid, _emailController.text);
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
@@ -50,6 +52,17 @@ class _LoginState extends State<Login> {
         ),
       );
     }
+  }
+
+  void insertData(userId, email) async {
+    DocumentReference reference = FirebaseFirestore.instance.collection("users").doc(userId);
+    reference.set({
+      "height": 0,
+      "name": "",
+      "email": email,
+      "birth_date": DateTime.now(),
+      "gender": "Male"
+    }).then((value) => const SnackBar(content: Text("Success")));
   }
 
   @override
